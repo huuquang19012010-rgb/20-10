@@ -1,0 +1,891 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#fff0f5">
+<title>Gửi mẹ yêu thương 💗</title>
+
+<style>
+:root {
+    --pink: #ff6f9f;
+    --pink-dark: #d9437b;
+    --pink-light: #fff0f5;
+    --pink-soft: #ffe0eb;
+    --cream: #fffaf8;
+    --text: #854761;
+    --shadow: 0 12px 35px rgba(210, 94, 139, 0.15);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: var(--text);
+    background:
+        radial-gradient(ellipse at top left, #ffe3ed 0, transparent 45%),
+        linear-gradient(135deg, #fff8fa, #ffeaf2, #fff7f5);
+    overflow-x: hidden;
+}
+
+button { font: inherit; }
+
+button:focus-visible,
+[role="button"]:focus-visible {
+    outline: 3px solid #c52d70;
+    outline-offset: 4px;
+}
+
+.hidden { display: none !important; }
+
+section {
+    padding: 76px 20px;
+    position: relative;
+}
+
+.section-inner {
+    width: min(1050px, 100%);
+    margin: 0 auto;
+}
+
+.section-title {
+    margin: 0 0 12px;
+    text-align: center;
+    color: var(--pink-dark);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(2rem, 5vw, 3.1rem);
+    font-style: italic;
+}
+
+.section-subtitle {
+    text-align: center;
+    line-height: 1.8;
+    margin: 0 auto 34px;
+    max-width: 620px;
+    color: #98627a;
+}
+
+.pink-button {
+    border: 0;
+    border-radius: 999px;
+    padding: 14px 24px;
+    background: linear-gradient(135deg, #ff82ad, #ed4f8a);
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(237, 79, 138, 0.25);
+    transition: transform .25s, box-shadow .25s;
+}
+
+.pink-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 24px rgba(237, 79, 138, 0.32);
+}
+
+.pink-button:active { transform: scale(.97); }
+
+/* NÚT NHẠC */
+.music-button {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 10px 14px;
+    border: 1px solid #ffc2d7;
+    border-radius: 999px;
+    color: var(--pink-dark);
+    background: rgba(255, 255, 255, .9);
+    box-shadow: 0 5px 18px rgba(210, 94, 139, .14);
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.music-icon { font-size: 17px; }
+
+/* MÀN HÌNH MỞ ĐẦU */
+.hero {
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 20px 50px;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse at 50% 80%, #ffd2e2 0, transparent 42%),
+        linear-gradient(160deg, #fff8fb, #ffeaf3 60%, #fff8f5);
+}
+
+.hero::before,
+.hero::after {
+    content: "♡";
+    position: absolute;
+    color: #ff9cbd;
+    font-size: 40px;
+    opacity: .65;
+    animation: float 5s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.hero::before {
+    top: 15%;
+    left: 9%;
+}
+
+.hero::after {
+    right: 10%;
+    bottom: 17%;
+    animation-delay: -2s;
+}
+
+.hero-content {
+    width: min(680px, 100%);
+    position: relative;
+    z-index: 2;
+    animation: fadeUp 1s ease both;
+}
+
+.eyebrow {
+    display: inline-block;
+    padding: 8px 15px;
+    border: 1px solid #ffc3d7;
+    border-radius: 999px;
+    color: #c34d7d;
+    background: rgba(255,255,255,.7);
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.hero h1 {
+    margin: 22px 0 10px;
+    color: #d9437b;
+    font-family: Georgia, "Times New Roman", serif;
+    font-style: italic;
+    font-size: clamp(2.2rem, 7vw, 4.3rem);
+    line-height: 1.2;
+    text-shadow: 0 4px 20px rgba(231, 106, 153, .12);
+}
+
+.hero p {
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.8;
+    font-size: 16px;
+}
+
+.bouquet-wrap {
+    width: min(390px, 88vw);
+    height: 315px;
+    margin: 10px auto 16px;
+    position: relative;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.bouquet-glow {
+    position: absolute;
+    width: 82%;
+    height: 72%;
+    top: 12%;
+    border-radius: 50%;
+    background: radial-gradient(circle, #ffc3d8 0%, #ffe5ef 48%, transparent 72%);
+    filter: blur(10px);
+}
+
+.bouquet {
+    position: relative;
+    z-index: 2;
+    font-size: clamp(6.5rem, 28vw, 10rem);
+    line-height: 1;
+    filter: drop-shadow(0 16px 12px rgba(194, 79, 125, .18));
+    animation: bouquetSway 4s ease-in-out infinite;
+    transition: transform .45s;
+}
+
+.bouquet-wrap:hover .bouquet {
+    transform: scale(1.07) rotate(-3deg);
+}
+
+.bouquet-note {
+    position: absolute;
+    right: 7%;
+    bottom: 12%;
+    z-index: 3;
+    transform: rotate(8deg);
+    background: #fffaf5;
+    color: #d9437b;
+    padding: 10px 14px;
+    box-shadow: 0 5px 15px #d27b9c35;
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-size: 14px;
+}
+
+.hero-hint {
+    display: block;
+    margin-top: 15px;
+    font-size: 13px;
+    color: #ad6b85;
+    animation: pulse 2s infinite;
+}
+
+/* THIỆP GỬI MẸ */
+.letter-section { padding-top: 65px; }
+
+.letter {
+    position: relative;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: clamp(25px, 6vw, 55px);
+    background: rgba(255, 255, 255, .9);
+    border: 1px solid #ffd1e1;
+    border-radius: 8px 8px 25px 8px;
+    box-shadow: var(--shadow);
+    animation: letterIn .8s ease both;
+}
+
+.letter::before {
+    content: "🌷";
+    position: absolute;
+    top: -23px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 35px;
+    background: #fff5f8;
+    border-radius: 50%;
+    padding: 3px 10px;
+}
+
+.letter h2 {
+    margin: 10px 0 25px;
+    text-align: center;
+    color: var(--pink-dark);
+    font-family: Georgia, serif;
+    font-size: clamp(1.5rem, 5vw, 2.3rem);
+    font-style: italic;
+}
+
+.letter p {
+    font-size: 16px;
+    line-height: 2;
+    margin: 0 0 17px;
+}
+
+.letter-sign {
+    text-align: right;
+    color: #d9437b;
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-size: 18px;
+    margin-top: 24px;
+}
+
+/* ALBUM 2 ẢNH */
+.album-section {
+    background: rgba(255, 255, 255, .32);
+}
+
+.album-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 30px;
+    align-items: start;
+    max-width: 780px;
+    margin: 0 auto;
+}
+
+.polaroid {
+    padding: 11px;
+    background: white;
+    border-radius: 4px;
+    box-shadow: 0 8px 22px rgba(166, 82, 118, .15);
+    transition: transform .3s, box-shadow .3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.polaroid:nth-child(1) {
+    transform: rotate(-2deg);
+}
+
+.polaroid:nth-child(2) {
+    transform: rotate(2deg);
+    margin-top: 24px;
+}
+
+.polaroid:hover {
+    transform: translateY(-7px) rotate(0deg) scale(1.02);
+    box-shadow: 0 15px 28px rgba(166, 82, 118, .22);
+    z-index: 2;
+}
+
+.photo-frame {
+    width: 100%;
+    overflow: hidden;
+    background: #fff0f5;
+    display: grid;
+    place-items: center;
+    position: relative;
+}
+
+/* ẢNH MẸ: KHUNG DỌC 3:4 */
+.polaroid:nth-child(1) .photo-frame {
+    aspect-ratio: 3 / 4;
+}
+
+/* ẢNH GIA ĐÌNH: KHUNG NGANG 4:3 */
+.polaroid:nth-child(2) .photo-frame {
+    aspect-ratio: 4 / 3;
+}
+
+.photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    transition: transform .45s;
+}
+
+.polaroid:hover .photo-frame img {
+    transform: scale(1.04);
+}
+
+.photo-caption {
+    text-align: center;
+    padding: 15px 5px 8px;
+    color: #d9437b;
+    font-family: Georgia, serif;
+    font-size: 18px;
+    font-style: italic;
+}
+
+.photo-placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 12px;
+    color: #c75c86;
+    line-height: 1.7;
+    font-size: 13px;
+}
+
+.photo-placeholder span {
+    display: block;
+    font-size: 35px;
+    margin-bottom: 5px;
+}
+
+/* LỜI NHẮN CUỐI */
+.closing {
+    text-align: center;
+    padding-top: 90px;
+    padding-bottom: 90px;
+    background: radial-gradient(ellipse at center, #ffd6e5, transparent 65%);
+}
+
+.closing-heart {
+    font-size: 55px;
+    display: inline-block;
+    animation: heartbeat 1.6s infinite;
+}
+
+.closing h2 {
+    margin: 18px auto;
+    max-width: 750px;
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-size: clamp(2rem, 6vw, 3.2rem);
+    line-height: 1.4;
+    color: #d9437b;
+}
+
+.closing p {
+    max-width: 590px;
+    margin: 0 auto 25px;
+    line-height: 1.9;
+}
+
+footer {
+    text-align: center;
+    padding: 24px 16px;
+    color: #b06c86;
+    font-size: 13px;
+    line-height: 1.8;
+    background: rgba(255,255,255,.65);
+}
+
+/* HOA RƠI */
+.falling-petal {
+    position: fixed;
+    top: -35px;
+    z-index: 80;
+    pointer-events: none;
+    user-select: none;
+    animation: petalFall linear forwards;
+    will-change: transform, opacity;
+}
+
+/* HIỆU ỨNG */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(25px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes letterIn {
+    from { opacity: 0; transform: translateY(20px) scale(.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(-8deg); }
+    50% { transform: translateY(-20px) rotate(8deg); }
+}
+
+@keyframes bouquetSway {
+    0%, 100% { transform: rotate(-2deg) translateY(0); }
+    50% { transform: rotate(2deg) translateY(-7px); }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: .65; }
+    50% { opacity: 1; }
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    15% { transform: scale(1.13); }
+    30% { transform: scale(1); }
+    45% { transform: scale(1.08); }
+}
+
+@keyframes petalFall {
+    0% {
+        transform: translate3d(0, -5vh, 0) rotate(0deg);
+        opacity: 0;
+    }
+    10% { opacity: .9; }
+    90% { opacity: .8; }
+    100% {
+        transform: translate3d(var(--drift), 110vh, 0) rotate(600deg);
+        opacity: 0;
+    }
+}
+
+/* ĐIỆN THOẠI */
+@media (max-width: 720px) {
+    section { padding: 58px 16px; }
+
+    .hero {
+        min-height: 94svh;
+        padding-top: 90px;
+    }
+
+    .hero h1 {
+        font-size: clamp(2.05rem, 9vw, 3.2rem);
+    }
+
+    .bouquet-wrap { height: 260px; }
+
+    .album-grid {
+        gap: 16px;
+    }
+
+    .polaroid { padding: 7px; }
+
+    .photo-caption {
+        font-size: 15px;
+        padding: 12px 3px 6px;
+    }
+
+    .letter p {
+        font-size: 15px;
+        line-height: 1.9;
+    }
+
+    .music-button {
+        top: 10px;
+        right: 10px;
+        padding: 9px 12px;
+    }
+}
+
+@media (max-width: 380px) {
+    .album-grid { gap: 12px; }
+    .bouquet-wrap { height: 225px; }
+    .photo-caption { font-size: 13px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ĐẶT NHACNEN.MP3 CÙNG THƯ MỤC VỚI INDEX.HTML -->
+<audio id="backgroundMusic" src="nhacnen.mp3"
+       loop preload="auto"></audio>
+
+<button class="music-button" id="musicButton" type="button"
+        aria-label="Bật nhạc nền" aria-pressed="false">
+    <span class="music-icon" id="musicIcon">♫</span>
+    <span id="musicText">Bật nhạc</span>
+</button>
+
+<!-- MÀN HÌNH CHÀO -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <span class="eyebrow">💗 Dành tặng mẹ 💗</span>
+
+        <h1>Gửi người phụ nữ<br>con yêu nhất</h1>
+
+        <p>
+            Con có một món quà nhỏ dành tặng mẹ.
+            Cảm ơn mẹ vì đã luôn yêu thương,
+            chăm sóc và ở bên con. 🌷
+        </p>
+
+        <div class="bouquet-wrap" id="bouquet"
+             role="button" tabindex="0"
+             aria-label="Bấm để mở thiệp">
+            <div class="bouquet-glow"></div>
+            <div class="bouquet" aria-hidden="true">💐</div>
+            <div class="bouquet-note">Tặng mẹ yêu ♡</div>
+        </div>
+
+        <button class="pink-button" id="openCardButton" type="button">
+            💌 Mẹ mở món quà này nhé
+        </button>
+
+        <span class="hero-hint">
+            Một món quà nhỏ, dành cho người con yêu nhất ♡
+        </span>
+    </div>
+</section>
+
+<!-- THIỆP GỬI MẸ -->
+<section class="letter-section hidden" id="letterSection">
+    <div class="section-inner">
+        <div class="letter">
+            <h2>Gửi mẹ yêu của con 💗</h2>
+
+            <p>
+                Mẹ à, có lẽ bình thường con ít khi nói ra những lời
+                tình cảm, nhưng hôm nay con muốn dành một chút thời gian
+                để nói với mẹ những điều từ tận đáy lòng mình.
+            </p>
+
+            <p>
+                Cảm ơn mẹ vì đã luôn chăm sóc con, lo lắng cho con
+                từ những điều nhỏ nhất. Cảm ơn mẹ vì những bữa cơm,
+                những lời nhắc nhở và cả những lúc mẹ âm thầm quan tâm
+                mà đôi khi con vô tình không để ý.
+            </p>
+
+            <p>
+                Con biết mẹ đã vất vả rất nhiều để gia đình mình
+                luôn được bình yên và đầy đủ yêu thương.
+                Dù đôi khi con còn vô tâm, chưa ngoan hoặc khiến mẹ
+                phải lo lắng, con vẫn luôn biết ơn vì có mẹ bên cạnh.
+            </p>
+
+            <p>
+                Con mong mẹ luôn mạnh khỏe, vui vẻ và có thật nhiều
+                niềm vui mỗi ngày. Mong mẹ sẽ bớt những lo toan,
+                có thêm thời gian chăm sóc bản thân và luôn giữ
+                nụ cười thật tươi trên môi.
+            </p>
+
+            <p>
+                Con không biết làm những điều thật lớn lao để đáp lại
+                tất cả tình yêu mẹ dành cho con, nhưng con sẽ cố gắng
+                trưởng thành hơn, sống tốt hơn và trở thành người
+                khiến mẹ có thể tự hào.
+            </p>
+
+            <p style="text-align:center; color:#d9437b; font-weight:700;">
+                Con yêu mẹ nhiều lắm! Cảm ơn mẹ vì tất cả. 💗
+            </p>
+
+            <div class="letter-sign">Con của mẹ ♡</div>
+        </div>
+    </div>
+</section>
+
+<!-- ALBUM ẢNH: MẸ VÀ GIA ĐÌNH -->
+<section class="album-section hidden" id="albumSection">
+    <div class="section-inner">
+        <h2 class="section-title">
+            Những người con yêu thương nhất ♡
+        </h2>
+
+        <p class="section-subtitle">
+            Một góc nhỏ lưu giữ những khoảnh khắc đẹp
+            của mẹ và gia đình mình 🌷
+        </p>
+
+        <div class="album-grid" id="albumGrid"></div>
+    </div>
+</section>
+
+<!-- LỜI NHẮN CUỐI -->
+<section class="closing hidden" id="closingSection">
+    <div class="section-inner">
+        <div class="closing-heart">💗</div>
+
+        <h2>Mẹ là bông hoa đẹp nhất trong lòng con!</h2>
+
+        <p>
+            Con mong mẹ luôn mạnh khỏe, bình an và hạnh phúc.
+            Dù sau này con có lớn lên đến đâu, mẹ vẫn luôn là
+            người con yêu thương và biết ơn nhất. 🌷
+        </p>
+
+        <p style="font-family:Georgia,serif;font-style:italic;">
+            Con yêu mẹ, hôm nay và cả những ngày sau nữa! 💗
+        </p>
+
+        <button class="pink-button" id="backToTopButton" type="button">
+            ↻ Đọc lại lời chúc
+        </button>
+    </div>
+</section>
+
+<footer>
+    <div>♡ Dành tặng mẹ với tất cả tình yêu thương ♡</div>
+    <div>Made with love, from your child 🌷</div>
+</footer>
+
+<script>
+/* 1. DANH SÁCH ẢNH */
+const photos = [
+    {
+        src: "anh1.jpg",
+        caption: "Mẹ yêu của con 💗"
+    },
+    {
+        src: "anh2.jpg",
+        caption: "Gia đình nhỏ, hạnh phúc to ♡"
+    }
+];
+
+const albumGrid = document.getElementById("albumGrid");
+
+photos.forEach(function(photo, index) {
+    const card = document.createElement("article");
+    card.className = "polaroid";
+
+    const frame = document.createElement("div");
+    frame.className = "photo-frame";
+
+    const placeholder = document.createElement("div");
+    placeholder.className = "photo-placeholder";
+
+    placeholder.innerHTML =
+        '<span>🌷</span><strong>Ảnh ' + (index + 1) +
+        '</strong><br>Hãy thêm file ' + photo.src +
+        ' vào thư mục website';
+
+    const img = document.createElement("img");
+    img.src = photo.src;
+    img.alt = photo.caption;
+    img.loading = "lazy";
+    img.style.display = "none";
+
+    img.addEventListener("error", function() {
+        img.style.display = "none";
+
+        if (!placeholder.isConnected) {
+            frame.appendChild(placeholder);
+        }
+    });
+
+    img.addEventListener("load", function() {
+        placeholder.remove();
+        img.style.display = "block";
+    });
+
+    frame.appendChild(placeholder);
+    frame.appendChild(img);
+
+    const caption = document.createElement("div");
+    caption.className = "photo-caption";
+    caption.textContent = photo.caption;
+
+    card.appendChild(frame);
+    card.appendChild(caption);
+    albumGrid.appendChild(card);
+});
+
+/* 2. MỞ THIỆP */
+const openCardButton = document.getElementById("openCardButton");
+const bouquet = document.getElementById("bouquet");
+const letterSection = document.getElementById("letterSection");
+const albumSection = document.getElementById("albumSection");
+const closingSection = document.getElementById("closingSection");
+
+let cardOpened = false;
+
+function openCard() {
+    if (cardOpened) {
+        letterSection.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+        return;
+    }
+
+    cardOpened = true;
+
+    letterSection.classList.remove("hidden");
+    albumSection.classList.remove("hidden");
+    closingSection.classList.remove("hidden");
+
+    createPetals(22);
+
+    setTimeout(function() {
+        letterSection.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    }, 180);
+}
+
+openCardButton.addEventListener("click", openCard);
+bouquet.addEventListener("click", openCard);
+
+bouquet.addEventListener("keydown", function(event) {
+    if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        openCard();
+    }
+});
+
+document.getElementById("backToTopButton")
+    .addEventListener("click", function() {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+
+/* 3. NHẠC NỀN */
+const music = document.getElementById("backgroundMusic");
+const musicButton = document.getElementById("musicButton");
+const musicText = document.getElementById("musicText");
+const musicIcon = document.getElementById("musicIcon");
+
+function updateMusicButton(playing) {
+    musicText.textContent = playing ? "Nhạc: Bật" : "Bật nhạc";
+    musicIcon.textContent = playing ? "♫" : "♫";
+
+    musicButton.setAttribute(
+        "aria-label",
+        playing ? "Tắt nhạc nền" : "Bật nhạc nền"
+    );
+
+    musicButton.setAttribute("aria-pressed", String(playing));
+}
+
+// Thử phát nhạc tự động; trình duyệt có thể chặn.
+window.addEventListener("load", async function() {
+    try {
+        await music.play();
+        updateMusicButton(true);
+    } catch (error) {
+        updateMusicButton(false);
+    }
+});
+
+// Bật hoặc tắt nhạc bằng nút.
+musicButton.addEventListener("click", async function() {
+    if (music.paused) {
+        try {
+            await music.play();
+            updateMusicButton(true);
+        } catch (error) {
+            updateMusicButton(false);
+            alert(
+                "Chưa phát được nhạc. Hãy kiểm tra file nhacnen.mp3 nhé!"
+            );
+        }
+    } else {
+        music.pause();
+        updateMusicButton(false);
+    }
+});
+
+/* 4. HOA RƠI */
+const petalSymbols = ["🌸", "🌷", "♡", "💗", "✿"];
+let petalTimer = null;
+
+function createPetal() {
+    const petal = document.createElement("span");
+    petal.className = "falling-petal";
+
+    petal.textContent =
+        petalSymbols[
+            Math.floor(Math.random() * petalSymbols.length)
+        ];
+
+    petal.style.left = Math.random() * 100 + "vw";
+    petal.style.fontSize = (12 + Math.random() * 15) + "px";
+    petal.style.animationDuration = (6 + Math.random() * 6) + "s";
+
+    petal.style.setProperty(
+        "--drift",
+        (Math.random() * 180 - 90) + "px"
+    );
+
+    document.body.appendChild(petal);
+
+    petal.addEventListener("animationend", function() {
+        petal.remove();
+    });
+}
+
+function createPetals(amount) {
+    for (let i = 0; i < amount; i++) {
+        setTimeout(createPetal, i * 100);
+    }
+
+    if (!petalTimer) {
+        petalTimer = setInterval(function() {
+            if (
+                document.querySelectorAll(".falling-petal").length < 18
+            ) {
+                createPetal();
+            }
+        }, 900);
+    }
+}
+
+// Một ít hoa rơi từ lúc mở website.
+setTimeout(function() {
+    createPetals(8);
+}, 500);
+</script>
+
+</body>
+</html>
